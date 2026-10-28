@@ -1,0 +1,249 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.68)
+        ),
+        url("/static/positivenegativeimage.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: white;
+}
+
+/* Navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 8%;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #45d6a0;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    color: white;
+}
+
+/* Main section */
+.hero {
+    min-height: 82vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero h1 span {
+    color: #45d6a0;
+}
+
+.hero > p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 650px;
+
+    color: #eeeeee;
+    margin-bottom: 35px;
+}
+
+/* Review analyzer */
+.analyzer {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 28px;
+
+    background: rgba(10, 15, 25, 0.88);
+    border: 1px solid rgba(69, 214, 160, 0.45);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.input-label {
+    display: block;
+    text-align: left;
+    margin-bottom: 12px;
+
+    color: #e5e7eb;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.analyzer textarea {
+    display: block;
+    width: 100%;
+    height: 125px;
+
+    padding: 15px;
+
+    border: 1px solid #555;
+    border-radius: 8px;
+
+    background: #171d29;
+    color: white;
+
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.6;
+
+    resize: vertical;
+    outline: none;
+}
+
+.analyzer textarea::placeholder {
+    color: #a4aab5;
+}
+
+.analyzer textarea:focus {
+    border-color: #45d6a0;
+    box-shadow: 0 0 0 2px rgba(69, 214, 160, 0.12);
+}
+
+/* Analyze button */
+.analyzer button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 14px 24px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #20b981;
+    color: #07130e;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.analyzer button:hover {
+    background: #45d6a0;
+    transform: translateY(-1px);
+}
+
+.analyzer button:active {
+    transform: translateY(0);
+}
+
+/* Small note below the button */
+.note {
+    margin-top: 17px;
+    color: #c9c9c9;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* Prediction result */
+.result {
+    margin-top: 24px;
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.result-heading {
+    color: #c9c9c9;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.result h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.result h2.positive {
+    color: #45d6a0;
+}
+
+.result h2.negative {
+    color: #ff7777;
+}
+
+.confidence {
+    color: #eeeeee;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Footer */
+footer {
+    margin-top: 28px;
+    color: #d1d5db;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    nav {
+        padding: 20px 6%;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 40px 16px;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 8vw, 44px);
+    }
+
+    .hero > p {
+        font-size: 15px;
+        margin-bottom: 26px;
+    }
+
+    .analyzer {
+        padding: 20px;
+    }
+
+    .analyzer textarea {
+        height: 120px;
+        font-size: 14px;
+    }
+}
