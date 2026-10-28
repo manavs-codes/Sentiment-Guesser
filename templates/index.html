@@ -1,1 +1,90 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>SentiMind | Sentiment Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <nav>
+        <div class="logo">Sentiment Guesser</div>
+    </nav>
+
+    <!-- Main section -->
+    <main class="hero">
+
+        <h1>
+            Understand the <span>Review</span><br>
+            Sentiment of Users
+        </h1>
+
+        <p>
+            Discover the sentiments behind reviews.
+            Analyze opinions, understand feelings, and uncover
+            whether a review expresses a positive or negative sentiment.
+        </p>
+
+        <!-- Review input form -->
+        <section class="analyzer" id="analyzer">
+
+            <form method="POST" action="/">
+
+                <label for="review" class="input-label">
+                    Enter your review
+                </label>
+
+                <textarea
+                    id="review"
+                    name="review"
+                    placeholder="Enter your text here to analyze its sentiment..."
+                    aria-label="Text to analyze"
+                    required
+                >{{ review or '' }}</textarea>
+
+                <button type="submit">
+                    Analyze Sentiment &rarr;
+                </button>
+
+            </form>
+
+            <div class="note">
+                Positive &middot; Negative
+            </div>
+
+            <!-- Display prediction returned by Flask -->
+            {% if prediction %}
+            <div class="result">
+
+                <p class="result-heading">SENTIMENT RESULT</p>
+
+                <h2 class="{{ prediction|lower }}">
+                    {{ prediction }}
+                </h2>
+
+                {% if confidence is not none %}
+                <p class="confidence">
+                    Model confidence: {{ confidence }}%
+                </p>
+                {% endif %}
+
+            </div>
+            {% endif %}
+
+        </section>
+
+        <footer>
+            Built with NLP & Machine Learning
+        </footer>
+
+    </main>
+
+</body>
+</html>
