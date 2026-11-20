@@ -1,80 +1,150 @@
-# SentiMind — ML-Powered Sentiment Analysis
+# Sentiment-Guesser 💬
 
-SentiMind is a Machine Learning project that analyzes written reviews and classifies their sentiment as **Positive** or **Negative**. It combines text processing and supervised learning to identify sentiment patterns in user reviews.
+### An NLP-powered sentiment analysis web application built with Machine Learning.
 
-The project uses TF-IDF feature extraction and compares Logistic Regression with Multinomial Naive Bayes to identify a suitable classification model.
+<p align="center">
+  <a href="https://sentiment-guesser.onrender.com">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Try_Sentiment--Guesser-2ea44f?style=for-the-badge" alt="Live Demo">
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.14-blue?style=flat-square&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/Flask-Web_Framework-black?style=flat-square&logo=flask" alt="Flask">
+  <img src="https://img.shields.io/badge/Scikit--learn-Machine_Learning-orange?style=flat-square&logo=scikitlearn" alt="Scikit-learn">
+  <img src="https://img.shields.io/badge/Deployment-Render-purple?style=flat-square" alt="Render">
+</p>
+
+
+## 📌 Overview
+
+**Sentiment-Guesser** is a machine learning-based web application that analyzes text and predicts whether its sentiment is **Positive** or **Negative**.
+
+The project uses Natural Language Processing (NLP) techniques, particularly TF-IDF vectorization, combined with Logistic Regression to classify user-submitted reviews.
+
+What started as a machine learning experiment in Jupyter Notebook was developed into a complete web application using Flask and deployed on Render.
 
 ## ✨ Features
 
-- Binary sentiment classification: Positive or Negative
-- Text feature extraction using TF-IDF
-- Unigram and bigram feature analysis
-- Comparison of two Machine Learning algorithms
-- Evaluation using accuracy, precision, recall, and F1-score
-- Confidence score estimation using model probabilities
-- Saved model pipeline for reuse in an application
-- Custom website interface built with HTML and CSS
+- **Real-Time Sentiment Prediction:** Analyze text reviews and receive instant predictions.
+- **NLP-Based Classification:** Uses TF-IDF to convert text into numerical features.
+- **Machine Learning Model:** Uses a trained Logistic Regression classifier.
+- **Confidence Score:** Displays the model's prediction confidence.
+- **Interactive Web Interface:** Simple and user-friendly interface built with HTML and CSS.
+- **Live Deployment:** Accessible online through Render.
 
-## 🛠️ Tech Stack
+## 🚀 Live Demo
 
-- **Programming Language:** Python
-- **Data Processing:** Pandas
-- **Machine Learning:** Scikit-learn
-- **Text Feature Extraction:** TF-IDF Vectorizer
-- **Classification Algorithms:** Logistic Regression and Multinomial Naive Bayes
-- **Model Persistence:** Joblib
-- **Data Visualization:** Matplotlib
-- **Frontend:** HTML5 and CSS3
-- **Development Environment:** Jupyter Notebook
+Try the application here:
 
-## 📊 Dataset
+[**Open Sentiment-Guesser**](https://sentiment-guesser.onrender.com)
 
-The training data is organized into separate files containing positive and negative reviews:
+Enter a review and discover whether its sentiment is positive or negative.
 
-- `TrainingDataPositive.txt` — positive reviews
-- `TrainingDataNegative.txt` — negative reviews
-- `TestReviews.csv` — a separate review dataset containing review text and class labels
+## 🧠 Machine Learning Workflow
 
-After cleaning and removing duplicate training reviews, the notebook contains **10,282 training examples**.
+The project follows an end-to-end machine learning workflow:
 
-The training labels are encoded as:
+1. **Data Collection:** Used labelled positive and negative review datasets.
+2. **Data Cleaning:** Handled duplicate records and prepared the text data.
+3. **Text Vectorization:** Applied TF-IDF to transform textual data into numerical representations.
+4. **Model Training:** Trained Logistic Regression and Multinomial Naive Bayes classifiers.
+5. **Model Evaluation:** Compared the models using accuracy, precision, recall, and F1-score.
+6. **Model Saving:** Saved the trained machine learning pipeline using Joblib.
+7. **Web Integration:** Integrated the saved model into a Flask application.
+8. **Deployment:** Deployed the application using Gunicorn and Render.
 
-- `1` — Positive
-- `0` — Negative
+## 📊 Model Evaluation
 
-## ⚙️ Machine Learning Workflow
+Two machine learning algorithms were evaluated during model comparison.
 
-1. **Data Collection:** Load positive and negative reviews from text files.
-2. **Data Preprocessing:** Remove leading and trailing whitespace, empty reviews, and duplicate reviews.
-3. **Train-Test Split:** Divide the training data into 80% training and 20% testing subsets using stratified sampling.
-4. **Feature Extraction:** Convert text into numerical TF-IDF features using unigrams and bigrams.
-5. **Model Training:** Train Logistic Regression and Multinomial Naive Bayes classifiers.
-6. **Model Evaluation:** Compare model performance using accuracy, precision, recall, and F1-score.
-7. **Model Saving:** Save the Logistic Regression pipeline using Joblib for subsequent use.
+| Metric    | Logistic Regression | Naive Bayes |
+| --------- | ------------------: | ----------: |
+| Accuracy  |          **94.70%** |      91.59% |
+| Precision |          **96.41%** |      90.46% |
+| Recall    |              96.08% |  **98.49%** |
+| F1-Score  |          **96.25%** |      94.30% |
 
-## 📈 Model Performance
+**Selected Model: Logistic Regression**
 
-The following results were recorded in the Jupyter Notebook:
+Logistic Regression achieved the higher accuracy, precision, and F1-score in the evaluated experiment, making it the selected model for the web application.
 
-| Metric | Logistic Regression | Multinomial Naive Bayes |
-| Accuracy  | 94.70%           | 91.59%                  |
-| Precision | 96.41%           | 90.46%                  |
-| Recall    | 96.08%           | 98.49%                  |
-| F1-score  | 96.25%           | 94.30%                  |
+## 🛠️ Technology Stack
 
-Based on this experiment, Logistic Regression achieved higher accuracy, precision, and F1-score. It was selected as the saved model pipeline.
+| Category                    | Technologies  |
+| --------------------------- | ------------- |
+| Programming Language        | Python        |
+| Data Processing             | NumPy, Pandas |
+| Data Visualization          | Matplotlib    |
+| Natural Language Processing | TF-IDF        |
+| Machine Learning            | Scikit-learn  |
+| Model Persistence           | Joblib        |
+| Backend                     | Flask         |
+| Frontend                    | HTML, CSS     |
+| Production Server           | Gunicorn      |
+| Deployment                  | Render        |
+| Version Control             | Git, GitHub   |
 
+## 📂 Project Structure
 
-## 🎯 Project Objective
+```text
+Sentiment-Guesser/
+│
+├── app.py
+├── requirements.txt
+├── .gitignore
+├── .python-version
+│
+├── sentiment_analysis.ipynb
+│
+├── TestReviews.csv
+├── TrainingDataNegative.txt
+├── TrainingDataPositive.txt
+│
+├── saved_model/
+│   └── sentiment_model.pkl
+│
+├── templates/
+│   └── index.html
+│
+└── static/
+    ├── style.css
+    └── positivenegativeimage.jpg
+```
 
-The objective of SentiMind is to demonstrate the practical application of Machine Learning in text classification and build a foundation for an interactive sentiment analysis web application.
+## 🎯 Learning Outcomes
+
+Through this project, I gained practical experience with:
+
+- Text preprocessing and feature extraction.
+- TF-IDF vectorization for NLP tasks.
+- Training and evaluating machine learning classifiers.
+- Comparing classification algorithms.
+- Saving and loading trained ML models.
+- Integrating machine learning models with Flask.
+- Managing project dependencies and virtual environments.
+- Version control using Git and GitHub.
+- Deploying a Python web application using Render.
+
+## 🔮 Future Improvements
+
+- Experiment with additional NLP techniques.
+- Explore advanced machine learning and deep learning models.
+- Improve the user interface and application experience.
+- Expand the training dataset to improve generalization.
 
 ## 👨‍💻 Author
 
 **Manav Saxena**
 
-GitHub: [Add your GitHub profile link]
+B.Tech Computer Science and Engineering Student | Aspiring Data Scientist
+
+- GitHub: [@manavs-codes](https://github.com/manavs-codes)
+- Project Repository: [Sentiment-Guesser](https://github.com/manavs-codes/Sentiment-Guesser)
+- Live Application: [Try it here](https://sentiment-guesser.onrender.com)
 
 ---
 
-*Developed as a Machine Learning and Web Development project.*
+⭐ If you find this project interesting, consider giving the repository a star!
+
+*Built as part of my journey in Machine Learning, Natural Language Processing, and Data Science.*
