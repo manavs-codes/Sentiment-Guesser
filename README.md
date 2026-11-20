@@ -41,6 +41,12 @@ Try the application here:
 
 Enter a review and discover whether its sentiment is positive or negative.
 
+## 🖥️ Application Preview
+
+<p align="center">
+  <img src="sentiment-guesser.png" alt="Sentiment-Guesser Application Preview" width="850">
+</p>
+
 ## 🧠 Machine Learning Workflow
 
 The project follows an end-to-end machine learning workflow:
